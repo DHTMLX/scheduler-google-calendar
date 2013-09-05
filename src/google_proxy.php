@@ -70,8 +70,10 @@ class GoogleCalendarProxy {
 	}
 
 	private function detect_timezone(){
-		if (!$this->timezone)
-			$this->timezone = $this->cal->calendars->get($this->cal_name)["timeZone"];
+		if (!$this->timezone){
+			$calendar = $this->cal->calendars->get($this->cal_name);
+			$this->timezone = $calendar["timeZone"];
+		}
 	}
 
 	private function parse_gDate($input_date) {
