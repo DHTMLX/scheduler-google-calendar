@@ -166,10 +166,10 @@ class GoogleCalendarProxy {
 		$data["end"]   = array( 
 			"dateTime" => $this->to_gDate($data["end_date"]),
 			"timeZone" => "Europe/Minsk"	);
-		$ev["summary"] = $data["text"];
+		$data["summary"] = $data["text"];
 
 		try{
-			$ev = $this->cal->events->update($this->cal_name, $ev["id"], new Google_Event($ev));
+			$ev = $this->cal->events->update($this->cal_name, $ev["id"], new Google_Event($data));
 		} catch(Exception $error){
 			return false;
 		}
