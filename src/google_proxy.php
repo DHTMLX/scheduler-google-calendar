@@ -162,10 +162,10 @@ class GoogleCalendarProxy {
 	private function updateEvent($ev, $data){
 		$data["start"] = array( 
 			"dateTime" => $this->to_gDate($data["start_date"]), 
-			"timeZone" => "Europe/Minsk"	);
+			"timeZone" => $this->timezone	);
 		$data["end"]   = array( 
 			"dateTime" => $this->to_gDate($data["end_date"]),
-			"timeZone" => "Europe/Minsk"	);
+			"timeZone" => $this->timezone	);
 		$data["summary"] = $data["text"];
 
 		try{
@@ -187,13 +187,12 @@ class GoogleCalendarProxy {
 
 
 	private function insertEvent($data) {
-		$timezone = isset($data["timezone"]) ? $data["timezone"]: "00:00";
 		$data["start"] = array( 
 			"dateTime" => $this->to_gDate($data["start_date"]), 
-			"timeZone" => "Europe/Minsk"	);
+			"timeZone" => $this->timezone	);
 		$data["end"]   = array( 
 			"dateTime" => $this->to_gDate($data["end_date"]),
-			"timeZone" => "Europe/Minsk"	);
+			"timeZone" => $this->timezone	);
 		$data["summary"] = $data["text"];
 		unset($data["id"]);
 
