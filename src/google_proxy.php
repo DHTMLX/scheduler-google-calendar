@@ -17,6 +17,10 @@ class GoogleCalendarProxy {
 	private $cal;
 	private $cal_name;
 
+	/**
+	 * Calendar timezone
+	 * @var string
+	 */
 	public $timezone = "Europe/Minsk";
 	public $outputAll = false;
 	
