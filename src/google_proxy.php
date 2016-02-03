@@ -19,6 +19,8 @@ class GoogleCalendarProxy {
 
 	/**
 	 * Calendar timezone
+	 * Allowable values - IANA Time Zone Database names http://www.iana.org/time-zones
+	 * or false for autodetection.
 	 * @var string
 	 */
 	public $timezone = "Europe/Minsk";
