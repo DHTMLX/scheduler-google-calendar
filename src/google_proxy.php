@@ -17,7 +17,13 @@ class GoogleCalendarProxy {
 	private $cal;
 	private $cal_name;
 
-	public $timezone = false;
+	/**
+	 * Calendar timezone
+	 * Allowable values - IANA Time Zone Database names http://www.iana.org/time-zones
+	 * or false for autodetection.
+	 * @var string
+	 */
+	public $timezone = "Europe/Minsk";
 	public $outputAll = false;
 	
 	public function __construct($email, $id, $key, $calendar = false) {
@@ -162,10 +168,10 @@ class GoogleCalendarProxy {
 	private function updateEvent($ev, $data){
 		$data["start"] = array( 
 			"dateTime" => $this->to_gDate($data["start_date"]), 
-			"timeZone" => "Europe/Minsk"	);
+			"timeZone" => $this->timezone	);
 		$data["end"]   = array( 
 			"dateTime" => $this->to_gDate($data["end_date"]),
-			"timeZone" => "Europe/Minsk"	);
+			"timeZone" => $this->timezone	);
 		$data["summary"] = $data["text"];
 
 		try{
@@ -187,13 +193,12 @@ class GoogleCalendarProxy {
 
 
 	private function insertEvent($data) {
-		$timezone = isset($data["timezone"]) ? $data["timezone"]: "00:00";
 		$data["start"] = array( 
 			"dateTime" => $this->to_gDate($data["start_date"]), 
-			"timeZone" => "Europe/Minsk"	);
+			"timeZone" => $this->timezone	);
 		$data["end"]   = array( 
 			"dateTime" => $this->to_gDate($data["end_date"]),
-			"timeZone" => "Europe/Minsk"	);
+			"timeZone" => $this->timezone	);
 		$data["summary"] = $data["text"];
 		unset($data["id"]);
 
