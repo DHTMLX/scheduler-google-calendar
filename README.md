@@ -1,6 +1,12 @@
 Date converter between dhtmlxScheduler and Google Calendar
 ----------------------------------------------------------
 
+---
+
+**Deprecated**: This repository contains a legacy PHP helper for Google Calendar authentication and is no longer maintained. For the current integration example, please use the new repository: [DHTMLX/scheduler-google-calendar-demo](https://github.com/DHTMLX/scheduler-google-calendar-demo).
+
+---
+
 This class can be used to load a data from the Google Calendar to the dhtmlxScheduler,
 or to save changes from the dhtmlxScheduler back to the Google Calendar.
 
